@@ -33,7 +33,7 @@ Paragraph default: 1.6
 - Greys:
 #6f6f6f (lightest grey allowed on #fdf2e9)
 #aaa
-#888
+#767676 (lightest grey allowed on #fff)
 #555
 #333
 
@@ -108,6 +108,10 @@ body {
 
 .grid--4-cols {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .grid--center-v {
