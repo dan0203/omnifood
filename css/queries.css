@@ -75,6 +75,7 @@ In media queries we should use em instead of rem due to some browsers compatibil
   /* NAVIGATION */
   .btn-mobile-nav {
     display: block;
+    z-index: 9999;
   }
 
   .main-nav {
