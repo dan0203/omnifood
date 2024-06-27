@@ -1,14 +1,14 @@
-// ***********************************************************
-// Keep current year correct in copyright
-// ***********************************************************
+// ******************************************
+// * Keep current year correct in copyright *
+// ******************************************
 const yearEl = document.querySelector('.year');
 const currentYear = new Date().getFullYear();
 
 yearEl.textContent = currentYear;
 
-// ***********************************************************
-// Mobile navigation toggle
-// ***********************************************************
+// ****************************
+// * Mobile navigation toggle *
+// ****************************
 const headerEl = document.querySelector('.header');
 const btnNavEl = document.querySelector('.btn-mobile-nav');
 
@@ -16,9 +16,9 @@ btnNavEl.addEventListener('click', function () {
   headerEl.classList.toggle('nav-open');
 });
 
-// ***********************************************************
-// Smooth scrolling animation
-// ***********************************************************
+// ******************************
+// * Smooth scrolling animation *
+// ******************************
 const allLinks = document.querySelectorAll('a:link');
 
 allLinks.forEach(function (link) {
@@ -51,9 +51,9 @@ allLinks.forEach(function (link) {
   });
 });
 
-// ***********************************************************
-// Sticky navigation
-// ***********************************************************
+// *********************
+// * Sticky navigation *
+// *********************
 const sectionHeroEl = document.querySelector('.section-hero');
 const obs = new IntersectionObserver(
   function (entries) {
@@ -69,3 +69,23 @@ const obs = new IntersectionObserver(
 );
 
 obs.observe(sectionHeroEl);
+
+// **************************************************************
+// * Fixing flexbox gap property missing in some Safari version *
+// **************************************************************
+function checkFlexGap() {
+  let flex = document.createElement('div');
+  flex.style.display = 'flex';
+  flex.style.flexDirection = 'column';
+  flex.style.rowGap = '1px';
+
+  flex.appendChild(document.createElement('div'));
+  flex.appendChild(document.createElement('div'));
+
+  document.body.appendChild(flex);
+  let isSupported = flex.scrollHeight === 1;
+  flex.parentNode.removeChild(flex);
+
+  if (!isSupported) document.body.classList.add('no-flexbox-gap');
+}
+checkFlexGap();
